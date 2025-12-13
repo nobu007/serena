@@ -49,9 +49,7 @@ class TestEnhancedParameterizedAnalytics:
     @pytest.mark.parametrize("estimator_type,expected_class", [
         (RegisteredTokenCountEstimator.CHAR_COUNT, CharCountEstimator),
         (RegisteredTokenCountEstimator.TIKTOKEN_GPT4O, object),  # Would be TiktokenCountEstimator
-        (RegisteredTokenCountEstimator.TIKTOKEN_GPT4, object),    # Would be TiktokenCountEstimator
-        (RegisteredTokenCountEstimator.ANTHROPIC_CLAUDE3_SONNET, object),  # Would be AnthropicTokenCount
-        (RegisteredTokenCountEstimator.ANTHROPIC_CLAUDE3_HAIKU, object),   # Would be AnthropicTokenCount
+        (RegisteredTokenCountEstimator.ANTHROPIC_CLAUDE_SONNET_4, object),  # Would be AnthropicTokenCount
     ])
     def test_registered_estimator_creation(self, estimator_type, expected_class):
         """Test that registered estimators create correct types."""

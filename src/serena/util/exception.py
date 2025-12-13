@@ -4,6 +4,14 @@ import sys
 from serena.agent import log
 
 
+class ProjectNotFoundError(Exception):
+    """Raised when a project cannot be found or loaded."""
+    
+    def __init__(self, message: str = "Project not found"):
+        self.message = message
+        super().__init__(self.message)
+
+
 def is_headless_environment() -> bool:
     """
     Detect if we're running in a headless environment where GUI operations would fail.

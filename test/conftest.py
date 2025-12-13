@@ -1,9 +1,9 @@
+"""Test configuration for serena project."""
+
 import logging
 from pathlib import Path
 
 import pytest
-from serena.util.logging import configure
-
 from serena.constants import SERENA_MANAGED_DIR_IN_HOME, SERENA_MANAGED_DIR_NAME
 from serena.project import Project
 from serena.util.file_system import GitignoreParser
@@ -12,7 +12,7 @@ from solidlsp.ls_config import Language, LanguageServerConfig
 from solidlsp.ls_logger import LanguageServerLogger
 from solidlsp.settings import SolidLSPSettings
 
-configure(level=logging.ERROR)
+logging.basicConfig(level=logging.ERROR)
 
 
 @pytest.fixture(scope="session")
@@ -20,6 +20,24 @@ def resources_dir() -> Path:
     """Path to the test resources directory."""
     current_dir = Path(__file__).parent
     return current_dir / "resources"
+
+
+@pytest.fixture
+def sample_image_path():
+    """Path to a sample image for testing screen capture."""
+    # This would be created by tests that need it
+    return Path("/tmp/test_sample.png")
+
+
+@pytest.fixture
+def mock_region():
+    """Mock region object for testing."""
+    return {
+        "x": 0,
+        "y": 0,
+        "width": 100,
+        "height": 100
+    }
 
 
 class LanguageParamRequest:
@@ -147,3 +165,21 @@ def project(request: LanguageParamRequest):
 
     language = request.param
     yield create_default_project(language)
+
+
+@pytest.fixture
+def sample_image_path():
+    """Path to a sample image for testing screen capture."""
+    # This would be created by tests that need it
+    return Path("/tmp/test_sample.png")
+
+
+@pytest.fixture
+def mock_region():
+    """Mock region object for testing."""
+    return {
+        "x": 0,
+        "y": 0,
+        "width": 100,
+        "height": 100
+    }
