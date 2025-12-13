@@ -2,7 +2,7 @@ import logging
 from pathlib import Path
 
 import pytest
-from sensai.util.logging import configure
+from serena.util.logging import configure
 
 from serena.constants import SERENA_MANAGED_DIR_IN_HOME, SERENA_MANAGED_DIR_NAME
 from serena.project import Project
