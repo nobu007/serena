@@ -101,6 +101,11 @@ MANIFEST
 pip-log.txt
 pip-delete-this-directory.txt
 
+# pip redirect artifacts: an unquoted `pip install pkg>=24.0` makes the shell
+# create an empty file named `=24.0` (such a file was committed by mistake
+# in 530583c and removed in 63861a3)
+=*
+
 # Unit test / coverage reports
 htmlcov/
 .tox/
