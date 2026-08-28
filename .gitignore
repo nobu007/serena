@@ -255,3 +255,5 @@ cabal.project.local*
 
 zz-misc/
 vue-implementation/
+# Local agent worktrees (git worktree checkouts created by automation)
+/worktrees/
